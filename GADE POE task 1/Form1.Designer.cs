@@ -52,41 +52,41 @@ namespace GADE_POE_task_1
             // 
             // buttonUP1
             // 
-            this.buttonUP1.Location = new System.Drawing.Point(567, 74);
+            this.buttonUP1.Location = new System.Drawing.Point(675, 349);
             this.buttonUP1.Name = "buttonUP1";
-            this.buttonUP1.Size = new System.Drawing.Size(75, 23);
+            this.buttonUP1.Size = new System.Drawing.Size(40, 23);
             this.buttonUP1.TabIndex = 2;
-            this.buttonUP1.Text = "button2";
+            this.buttonUP1.Text = "^";
             this.buttonUP1.UseVisualStyleBackColor = true;
             this.buttonUP1.Click += new System.EventHandler(this.buttonUP1_Click);
             // 
             // buttonRIGHT1
             // 
-            this.buttonRIGHT1.Location = new System.Drawing.Point(686, 143);
+            this.buttonRIGHT1.Location = new System.Drawing.Point(728, 376);
             this.buttonRIGHT1.Name = "buttonRIGHT1";
-            this.buttonRIGHT1.Size = new System.Drawing.Size(75, 23);
+            this.buttonRIGHT1.Size = new System.Drawing.Size(40, 23);
             this.buttonRIGHT1.TabIndex = 3;
-            this.buttonRIGHT1.Text = "button2";
+            this.buttonRIGHT1.Text = ">";
             this.buttonRIGHT1.UseVisualStyleBackColor = true;
             this.buttonRIGHT1.Click += new System.EventHandler(this.buttonRIGHT1_Click);
             // 
             // buttonLEFT1
             // 
-            this.buttonLEFT1.Location = new System.Drawing.Point(455, 143);
+            this.buttonLEFT1.Location = new System.Drawing.Point(620, 376);
             this.buttonLEFT1.Name = "buttonLEFT1";
-            this.buttonLEFT1.Size = new System.Drawing.Size(75, 23);
+            this.buttonLEFT1.Size = new System.Drawing.Size(40, 23);
             this.buttonLEFT1.TabIndex = 4;
-            this.buttonLEFT1.Text = "button2";
+            this.buttonLEFT1.Text = "<";
             this.buttonLEFT1.UseVisualStyleBackColor = true;
             this.buttonLEFT1.Click += new System.EventHandler(this.buttonLEFT1_Click);
             // 
             // buttonDown1
             // 
-            this.buttonDown1.Location = new System.Drawing.Point(579, 209);
+            this.buttonDown1.Location = new System.Drawing.Point(675, 408);
             this.buttonDown1.Name = "buttonDown1";
-            this.buttonDown1.Size = new System.Drawing.Size(75, 23);
+            this.buttonDown1.Size = new System.Drawing.Size(40, 23);
             this.buttonDown1.TabIndex = 5;
-            this.buttonDown1.Text = "button2";
+            this.buttonDown1.Text = "v";
             this.buttonDown1.UseVisualStyleBackColor = true;
             this.buttonDown1.Click += new System.EventHandler(this.buttonDown1_Click);
             // 
