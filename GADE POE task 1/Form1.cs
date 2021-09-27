@@ -13,6 +13,7 @@ namespace GADE_POE_task_1
     public partial class Form1 : Form
     {
         map map11 = new map();
+        GameEngine GEngine = new GameEngine();
         public Form1()
         {
             InitializeComponent();
@@ -57,22 +58,26 @@ namespace GADE_POE_task_1
 
         private void buttonUP_Click(object sender, EventArgs e)
         {
-            
+            GEngine.goUp = true;
+            GEngine.goUp = false;
         }
 
         private void buttonLEFT_Click(object sender, EventArgs e)
         {
-
+            GEngine.goLeft = true;
+            GEngine.goLeft = false;
         }
 
         private void buttonRIGHT_Click(object sender, EventArgs e)
         {
-
+            GEngine.goRight = true;
+            GEngine.goRight = false;
         }
 
         private void buttonDOWN_Click(object sender, EventArgs e)
         {
-
+            GEngine.goDown = true;
+            GEngine.goDown = false;
         }
     }
     //Question 2.1
@@ -228,8 +233,12 @@ namespace GADE_POE_task_1
         public string[,] map_Arr;
 
         public object Hero_Symbol;
+        public int hero_Coords_X;
+        public int hero_Coords_Y;
 
         public int[] enemies_Arr;
+        public int[] enemies_Coords_X;
+        public int[] enemies_Coords_Y;
 
         public int map_Width;
         public int map_Height;
@@ -304,6 +313,8 @@ namespace GADE_POE_task_1
                 if (map_Arr[x, y] == " ")
                 {
                     map_Arr[x, y] = "G";
+                    enemies_Coords_X[i] = x;
+                    enemies_Coords_Y[i] = y;
                 }
             }
 
@@ -323,6 +334,8 @@ namespace GADE_POE_task_1
                 if (map_Arr[x, y] == " ")
                 {
                     map_Arr[x, y] = "H";
+                    hero_Coords_X = x;
+                    hero_Coords_Y = y;
 
                     done_2 = true;
                 }
@@ -339,9 +352,24 @@ namespace GADE_POE_task_1
         {
             
         }
-        public static void MovePlayer()
+        public void MovePlayer()
         {
-            
+            if (goUp == true)
+            {
+                
+            }
+            if (goLeft == true)
+            {
+
+            }
+            if (goRight == true)
+            {
+
+            }
+            if (goDown == true)
+            {
+
+            }
         }     
     }
 }
