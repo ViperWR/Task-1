@@ -15,11 +15,23 @@ namespace GADE_POE_task_1
         public Form1()
         {
             InitializeComponent();
+            MapLabel.Text = " ";
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void MapLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
     //Question 2.1
@@ -27,7 +39,7 @@ namespace GADE_POE_task_1
     {
         protected int X;
         protected int Y;
-
+   
         enum TileType
         {
             Hero,
@@ -224,7 +236,7 @@ namespace GADE_POE_task_1
                 map_Arr[i, map_Width - 1] = "X";
             }
         }
-        //question 3.3
+
         public void UpdateVision()
         {
             
@@ -282,12 +294,62 @@ namespace GADE_POE_task_1
                     done_2 = true;
                 }
             }
+            char display_Map = Convert.ToChar(map_Arr);
+            //question 4.1
+            MessageBox.Show(Convert.ToString(display_Map));
         }
     }
+    //question 3.3
     abstract class GameEngine
     {
         private int Map;
+        public bool goRight, goLeft, goUp, goDown;
 
+        public GameEngine()
+        {
+            
+        }
+        public static void MovePlayer()
+        {
 
+        }
+        public void KeyIsDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A)
+            {
+                goLeft = true;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                goRight = true;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                goDown = true;
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                goUp = true;
+            }
+        }
+        public void keyIsUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A)
+            {
+                goLeft = false;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                goRight = false;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                goDown = false;
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                goUp = false;
+            }
+        }
     }
 }
