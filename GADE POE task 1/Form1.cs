@@ -242,7 +242,7 @@ namespace GADE_POE_task_1
             {
                 for (int n = 0; n < map_Height; n++)
                 {
-                    map_Arr[i, n] = ".";
+                    map_Arr[i, n] = " ";
                 }
             }
             for (int i = 0; i < map_Width; i++)
@@ -274,13 +274,13 @@ namespace GADE_POE_task_1
                 x = ran.Next(1, map_Width - 1);
                 y = ran.Next(1, map_Height - 1);
 
-                while (map_Arr[x, y] != ".")
+                while (map_Arr[x, y] != " ")
                 {
                     x = ran.Next(1, map_Width - 1);
                     y = ran.Next(1, map_Height - 1);
                 }
 
-                if (map_Arr[x, y] == ".")
+                if (map_Arr[x, y] == " ")
                 {
                     map_Arr[x, y] = "G";
                 }
@@ -294,22 +294,18 @@ namespace GADE_POE_task_1
                 x = ran.Next(1, map_Width - 1);
                 y = ran.Next(1, map_Height - 1);
 
-                while (map_Arr[x, y] != ".")
+                while (map_Arr[x, y] != " ")
                 {
                     x = ran.Next(1, map_Width - 1);
                     y = ran.Next(1, map_Height - 1);
                 }
-                if (map_Arr[x, y] == ".")
+                if (map_Arr[x, y] == " ")
                 {
                     map_Arr[x, y] = "H";
 
                     done_2 = true;
                 }
             }
-            //char display_Map = Convert.ToChar(map_Arr);
-            //question 4.1
-            //MessageBox.Show(Convert.ToString(display_Map));
-            
         }
     }
     //question 3.3

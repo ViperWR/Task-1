@@ -39,9 +39,10 @@ namespace GADE_POE_task_1
             // 
             this.MapLabel.AccessibleName = "MapLabel";
             this.MapLabel.AutoSize = true;
+            this.MapLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MapLabel.Location = new System.Drawing.Point(27, 39);
             this.MapLabel.Name = "MapLabel";
-            this.MapLabel.Size = new System.Drawing.Size(31, 15);
+            this.MapLabel.Size = new System.Drawing.Size(38, 18);
             this.MapLabel.TabIndex = 0;
             this.MapLabel.Text = "Map";
             this.MapLabel.Click += new System.EventHandler(this.MapLabel_Click);
