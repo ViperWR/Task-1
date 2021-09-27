@@ -12,11 +12,31 @@ namespace GADE_POE_task_1
 {
     public partial class Form1 : Form
     {
+        map map11 = new map();
         public Form1()
         {
             InitializeComponent();
-            MapLabel.Text = " ";
-            
+            map11.map_Height = 12;
+            map11.map_Width = 12;
+            map11.enemies_Arr = new int[5];
+            map11.map_Arr = new string[map11.map_Width, map11.map_Height];
+
+            map11.Create();
+
+            map11.UpdateVision();
+
+            map11.Create_Objects();
+
+            MapLabel.Text = "";
+            for (int i = 0; i < map11.map_Width; i++)
+            {
+                for (int n = 0; n < map11.map_Height; n++)
+                {
+                    MapLabel.Text = MapLabel.Text + map11.map_Arr[i, n];
+                }
+                MapLabel.Text = MapLabel.Text + "\n";
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +51,7 @@ namespace GADE_POE_task_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
     //Question 2.1
@@ -182,7 +202,7 @@ namespace GADE_POE_task_1
         }
     }
     //question 3.1
-    abstract class map
+    public class map
     {
         public string[,] map_Arr;
 
@@ -222,7 +242,7 @@ namespace GADE_POE_task_1
             {
                 for (int n = 0; n < map_Height; n++)
                 {
-                    map_Arr[i, n] = " ";
+                    map_Arr[i, n] = ".";
                 }
             }
             for (int i = 0; i < map_Width; i++)
@@ -232,8 +252,8 @@ namespace GADE_POE_task_1
             }
             for (int i = 0; i < map_Height; i++)
             {
-                map_Arr[i, 0] = "X";
-                map_Arr[i, map_Width - 1] = "X";
+                map_Arr[0, i] = "X";
+                map_Arr[map_Width - 1, i] = "X";
             }
         }
 
@@ -246,57 +266,50 @@ namespace GADE_POE_task_1
             bool done = false;
             bool done_2 = false;
 
-            while (done == false)
+            for (int i = 0; i < enemies_Arr.Length; i++)
             {
-                int i = 0;
                 int x, y;
 
                 Random ran = new Random();
                 x = ran.Next(1, map_Width - 1);
                 y = ran.Next(1, map_Height - 1);
 
-                while (map_Arr[x, y] != " ")
+                while (map_Arr[x, y] != ".")
                 {
                     x = ran.Next(1, map_Width - 1);
                     y = ran.Next(1, map_Height - 1);
                 }
 
-                if (map_Arr[x, y] == " ")
+                if (map_Arr[x, y] == ".")
                 {
                     map_Arr[x, y] = "G";
-                    i++;
-                }
-
-                if (i >= enemies_Arr.Length - 1)
-                {
-                    done = true;
                 }
             }
 
             while (done_2 == false)
             {
-                int i = 0;
                 int x, y;
 
                 Random ran = new Random();
                 x = ran.Next(1, map_Width - 1);
                 y = ran.Next(1, map_Height - 1);
 
-                while (map_Arr[x, y] != " ")
+                while (map_Arr[x, y] != ".")
                 {
                     x = ran.Next(1, map_Width - 1);
                     y = ran.Next(1, map_Height - 1);
                 }
-                if (map_Arr[x, y] == " ")
+                if (map_Arr[x, y] == ".")
                 {
                     map_Arr[x, y] = "H";
 
                     done_2 = true;
                 }
             }
-            char display_Map = Convert.ToChar(map_Arr);
+            //char display_Map = Convert.ToChar(map_Arr);
             //question 4.1
-            MessageBox.Show(Convert.ToString(display_Map));
+            //MessageBox.Show(Convert.ToString(display_Map));
+            
         }
     }
     //question 3.3
