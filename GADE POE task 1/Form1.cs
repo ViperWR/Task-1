@@ -16,6 +16,7 @@ namespace GADE_POE_task_1
         public Form1()
         {
             InitializeComponent();
+
             map11.map_Height = 12;
             map11.map_Width = 12;
             map11.enemies_Arr = new int[5];
@@ -50,6 +51,26 @@ namespace GADE_POE_task_1
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUP_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonLEFT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRIGHT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDOWN_Click(object sender, EventArgs e)
         {
 
         }
@@ -309,7 +330,7 @@ namespace GADE_POE_task_1
         }
     }
     //question 3.3
-    abstract class GameEngine
+    public class GameEngine
     {
         private int Map;
         public bool goRight, goLeft, goUp, goDown;
@@ -320,45 +341,7 @@ namespace GADE_POE_task_1
         }
         public static void MovePlayer()
         {
-
-        }
-        public void KeyIsDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.A)
-            {
-                goLeft = true;
-            }
-            if (e.KeyCode == Keys.D)
-            {
-                goRight = true;
-            }
-            if (e.KeyCode == Keys.S)
-            {
-                goDown = true;
-            }
-            if (e.KeyCode == Keys.W)
-            {
-                goUp = true;
-            }
-        }
-        public void keyIsUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.A)
-            {
-                goLeft = false;
-            }
-            if (e.KeyCode == Keys.D)
-            {
-                goRight = false;
-            }
-            if (e.KeyCode == Keys.S)
-            {
-                goDown = false;
-            }
-            if (e.KeyCode == Keys.W)
-            {
-                goUp = false;
-            }
-        }
+            
+        }     
     }
 }
