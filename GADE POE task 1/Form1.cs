@@ -14,6 +14,7 @@ namespace GADE_POE_task_1
     {
         map map11 = new map();
         GameEngine GEngine = new GameEngine();
+        int directions = 0;
         public Form1()
         {
             InitializeComponent();
@@ -37,15 +38,90 @@ namespace GADE_POE_task_1
                     MapLabel.Text = MapLabel.Text + map11.map_Arr[i, n];
                 }
                 MapLabel.Text = MapLabel.Text + "\n";
-            }
-
-        }
-
+            }            
+        }      
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+        public void update_Map()
+        {
+            MapLabel.Text = "";
+            for (int i = 0; i < map11.map_Width; i++)
+            {
+                for (int n = 0; n < map11.map_Height; n++)
+                {
+                    MapLabel.Text = MapLabel.Text + map11.map_Arr[i, n];
+                }
+                MapLabel.Text = MapLabel.Text + "\n";
+            }
+        }
 
+        private void moveHero()
+        {
+            switch (directions)
+            {
+                case 1:                //left
+                    if (map11.hero_Coords_Y > 0)
+                    {
+                        if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] == " ")
+                        {
+                            map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y] = " ";
+                            map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] = "H";
+                            map11.hero_Coords_Y -= 1;
+                        }
+                        //else if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] == "G")
+                        //{
+                        //   map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y] = " ";          
+                        //    map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] = "H";       
+                        //    map11.hero_Coords_Y -= 1;
+                        //}
+                        update_Map();
+                    }
+
+                    directions = 0;                //gets set to 0 so the player stops moving
+                    return;
+                case 2:                //right
+                    if (map11.hero_Coords_Y < map11.map_Height - 1)
+                    {
+                        if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y + 1] == " ")
+                        {
+                            map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y] = " ";
+                            map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y + 1] = "H";
+                            map11.hero_Coords_Y += 1;
+                        }
+                        update_Map();
+                    }
+                    directions = 0;
+                    return;
+                case 3:                //up
+                    if (map11.hero_Coords_X > 0)
+                    {
+                        if (map11.map_Arr[map11.hero_Coords_X - 1, map11.hero_Coords_Y] == " ")
+                        {
+                            map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y] = " ";
+                            map11.map_Arr[map11.hero_Coords_X - 1, map11.hero_Coords_Y] = "H";
+                            map11.hero_Coords_X -= 1;
+                        }
+                        update_Map();
+                    }
+                    directions = 0;
+                    return;
+                case 4:                //down
+                    if (map11.hero_Coords_X < map11.map_Width - 1)
+                    {
+                        if (map11.map_Arr[map11.hero_Coords_X + 1, map11.hero_Coords_Y] == " ")
+                        {
+                            map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y] = " ";
+                            map11.map_Arr[map11.hero_Coords_X + 1, map11.hero_Coords_Y] = "H";
+                            map11.hero_Coords_X += 1;
+                        }
+                        update_Map();
+                    }
+                    directions = 0;                //gets set to 0 so the player stops moving
+                    return;
+            }
+        }
         private void MapLabel_Click(object sender, EventArgs e)
         {
 
@@ -53,31 +129,30 @@ namespace GADE_POE_task_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            update_Map();
+        }
+        private void buttonUP1_Click(object sender, EventArgs e)
+        {
+            directions = 3;
+            moveHero();
         }
 
-        private void buttonUP_Click(object sender, EventArgs e)
+        private void buttonLEFT1_Click(object sender, EventArgs e)
         {
-            GEngine.goUp = true;
-            GEngine.goUp = false;
+            directions = 1;
+            moveHero();
         }
 
-        private void buttonLEFT_Click(object sender, EventArgs e)
+        private void buttonDown1_Click(object sender, EventArgs e)
         {
-            GEngine.goLeft = true;
-            GEngine.goLeft = false;
+            directions = 4;
+            moveHero();
         }
 
-        private void buttonRIGHT_Click(object sender, EventArgs e)
+        private void buttonRIGHT1_Click(object sender, EventArgs e)
         {
-            GEngine.goRight = true;
-            GEngine.goRight = false;
-        }
-
-        private void buttonDOWN_Click(object sender, EventArgs e)
-        {
-            GEngine.goDown = true;
-            GEngine.goDown = false;
+            directions = 2;
+            moveHero();
         }
     }
     //Question 2.1
@@ -236,6 +311,9 @@ namespace GADE_POE_task_1
         public int hero_Coords_X;
         public int hero_Coords_Y;
 
+        public int prev_hero_Coords_X;
+        public int prev_hero_Coords_Y;
+
         public int[] enemies_Arr;
         public int[] enemies_Coords_X;
         public int[] enemies_Coords_Y;
@@ -313,8 +391,8 @@ namespace GADE_POE_task_1
                 if (map_Arr[x, y] == " ")
                 {
                     map_Arr[x, y] = "G";
-                    enemies_Coords_X[i] = x;
-                    enemies_Coords_Y[i] = y;
+                    //enemies_Coords_X[i] = x;
+                    //enemies_Coords_Y[i] = y;
                 }
             }
 
@@ -341,10 +419,12 @@ namespace GADE_POE_task_1
                 }
             }
         }
+
     }
     //question 3.3
     public class GameEngine
     {
+        map map11 = new map();
         private int Map;
         public bool goRight, goLeft, goUp, goDown;
 
@@ -356,19 +436,29 @@ namespace GADE_POE_task_1
         {
             if (goUp == true)
             {
+                //map11.prev_hero_Coords_X = map11.hero_Coords_X;
+                //map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
+                //map11.hero_Coords_Y -= 1;
+                //map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] = "H";
                 
             }
             if (goLeft == true)
             {
-
+                map11.prev_hero_Coords_X = map11.hero_Coords_X;
+                map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
+                map11.hero_Coords_X -= 1;
             }
             if (goRight == true)
             {
-
+                map11.prev_hero_Coords_X = map11.hero_Coords_X;
+                map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
+                map11.hero_Coords_X += 1;
             }
             if (goDown == true)
             {
-
+                map11.prev_hero_Coords_X = map11.hero_Coords_X;
+                map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
+                map11.hero_Coords_Y += 1;
             }
         }     
     }

@@ -32,7 +32,10 @@ namespace GADE_POE_task_1
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MapLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonUP1 = new System.Windows.Forms.Button();
+            this.buttonRIGHT1 = new System.Windows.Forms.Button();
+            this.buttonLEFT1 = new System.Windows.Forms.Button();
+            this.buttonDown1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MapLabel
@@ -47,22 +50,55 @@ namespace GADE_POE_task_1
             this.MapLabel.Text = "Map";
             this.MapLabel.Click += new System.EventHandler(this.MapLabel_Click);
             // 
-            // button1
+            // buttonUP1
             // 
-            this.button1.Location = new System.Drawing.Point(62, 330);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonUP1.Location = new System.Drawing.Point(567, 74);
+            this.buttonUP1.Name = "buttonUP1";
+            this.buttonUP1.Size = new System.Drawing.Size(75, 23);
+            this.buttonUP1.TabIndex = 2;
+            this.buttonUP1.Text = "button2";
+            this.buttonUP1.UseVisualStyleBackColor = true;
+            this.buttonUP1.Click += new System.EventHandler(this.buttonUP1_Click);
+            // 
+            // buttonRIGHT1
+            // 
+            this.buttonRIGHT1.Location = new System.Drawing.Point(686, 143);
+            this.buttonRIGHT1.Name = "buttonRIGHT1";
+            this.buttonRIGHT1.Size = new System.Drawing.Size(75, 23);
+            this.buttonRIGHT1.TabIndex = 3;
+            this.buttonRIGHT1.Text = "button2";
+            this.buttonRIGHT1.UseVisualStyleBackColor = true;
+            this.buttonRIGHT1.Click += new System.EventHandler(this.buttonRIGHT1_Click);
+            // 
+            // buttonLEFT1
+            // 
+            this.buttonLEFT1.Location = new System.Drawing.Point(455, 143);
+            this.buttonLEFT1.Name = "buttonLEFT1";
+            this.buttonLEFT1.Size = new System.Drawing.Size(75, 23);
+            this.buttonLEFT1.TabIndex = 4;
+            this.buttonLEFT1.Text = "button2";
+            this.buttonLEFT1.UseVisualStyleBackColor = true;
+            this.buttonLEFT1.Click += new System.EventHandler(this.buttonLEFT1_Click);
+            // 
+            // buttonDown1
+            // 
+            this.buttonDown1.Location = new System.Drawing.Point(579, 209);
+            this.buttonDown1.Name = "buttonDown1";
+            this.buttonDown1.Size = new System.Drawing.Size(75, 23);
+            this.buttonDown1.TabIndex = 5;
+            this.buttonDown1.Text = "button2";
+            this.buttonDown1.UseVisualStyleBackColor = true;
+            this.buttonDown1.Click += new System.EventHandler(this.buttonDown1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonDown1);
+            this.Controls.Add(this.buttonLEFT1);
+            this.Controls.Add(this.buttonRIGHT1);
+            this.Controls.Add(this.buttonUP1);
             this.Controls.Add(this.MapLabel);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -76,7 +112,10 @@ namespace GADE_POE_task_1
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label MapLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonUP1;
+        private System.Windows.Forms.Button buttonRIGHT1;
+        private System.Windows.Forms.Button buttonLEFT1;
+        private System.Windows.Forms.Button buttonDown1;
     }
 }
 
