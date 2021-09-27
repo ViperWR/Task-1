@@ -38,7 +38,9 @@ namespace GADE_POE_task_1
                     MapLabel.Text = MapLabel.Text + map11.map_Arr[i, n];
                 }
                 MapLabel.Text = MapLabel.Text + "\n";
-            }            
+            }
+
+            update_P_Stats();
         }      
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -56,7 +58,10 @@ namespace GADE_POE_task_1
                 MapLabel.Text = MapLabel.Text + "\n";
             }
         }
-
+        private void update_P_Stats()
+        {
+            richTextBox_Player_Stats.Text = "Player Stats:" + "\n HP: " + 100 + "\n Damage: 2" + "\n [" + map11.hero_Coords_X + "," + map11.hero_Coords_Y + "]";
+        }
         private void moveHero()
         {
             switch (directions)
@@ -76,6 +81,7 @@ namespace GADE_POE_task_1
                         //    map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] = "H";       
                         //    map11.hero_Coords_Y -= 1;
                         //}
+                        update_P_Stats();
                         update_Map();
                     }
 
@@ -90,6 +96,7 @@ namespace GADE_POE_task_1
                             map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y + 1] = "H";
                             map11.hero_Coords_Y += 1;
                         }
+                        update_P_Stats();
                         update_Map();
                     }
                     directions = 0;
@@ -103,6 +110,7 @@ namespace GADE_POE_task_1
                             map11.map_Arr[map11.hero_Coords_X - 1, map11.hero_Coords_Y] = "H";
                             map11.hero_Coords_X -= 1;
                         }
+                        update_P_Stats();
                         update_Map();
                     }
                     directions = 0;
@@ -116,6 +124,7 @@ namespace GADE_POE_task_1
                             map11.map_Arr[map11.hero_Coords_X + 1, map11.hero_Coords_Y] = "H";
                             map11.hero_Coords_X += 1;
                         }
+                        update_P_Stats();
                         update_Map();
                     }
                     directions = 0;                //gets set to 0 so the player stops moving
@@ -154,6 +163,16 @@ namespace GADE_POE_task_1
             directions = 2;
             moveHero();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Attack_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     //Question 2.1
     public abstract class Tile
@@ -191,9 +210,9 @@ namespace GADE_POE_task_1
     //Question 2.2
     abstract class Character : Tile
     {
-        protected int HP;
-        protected int Max_HP;
-        protected int Damage;
+        protected int HP = 100;
+        protected int Max_HP = 100;
+        protected int Damage = 2;
         protected int MapBorder;
 
         protected int[] Vision = new int[4];

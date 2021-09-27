@@ -36,6 +36,14 @@ namespace GADE_POE_task_1
             this.buttonRIGHT1 = new System.Windows.Forms.Button();
             this.buttonLEFT1 = new System.Windows.Forms.Button();
             this.buttonDown1 = new System.Windows.Forms.Button();
+            this.groupBoxAttacking = new System.Windows.Forms.GroupBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button_Attack = new System.Windows.Forms.Button();
+            this.groupBox_Player_Stats = new System.Windows.Forms.GroupBox();
+            this.richTextBox_Player_Stats = new System.Windows.Forms.RichTextBox();
+            this.groupBoxAttacking.SuspendLayout();
+            this.groupBox_Player_Stats.SuspendLayout();
             this.SuspendLayout();
             // 
             // MapLabel
@@ -52,7 +60,7 @@ namespace GADE_POE_task_1
             // 
             // buttonUP1
             // 
-            this.buttonUP1.Location = new System.Drawing.Point(675, 349);
+            this.buttonUP1.Location = new System.Drawing.Point(649, 398);
             this.buttonUP1.Name = "buttonUP1";
             this.buttonUP1.Size = new System.Drawing.Size(40, 23);
             this.buttonUP1.TabIndex = 2;
@@ -62,7 +70,7 @@ namespace GADE_POE_task_1
             // 
             // buttonRIGHT1
             // 
-            this.buttonRIGHT1.Location = new System.Drawing.Point(728, 376);
+            this.buttonRIGHT1.Location = new System.Drawing.Point(702, 425);
             this.buttonRIGHT1.Name = "buttonRIGHT1";
             this.buttonRIGHT1.Size = new System.Drawing.Size(40, 23);
             this.buttonRIGHT1.TabIndex = 3;
@@ -72,7 +80,7 @@ namespace GADE_POE_task_1
             // 
             // buttonLEFT1
             // 
-            this.buttonLEFT1.Location = new System.Drawing.Point(620, 376);
+            this.buttonLEFT1.Location = new System.Drawing.Point(594, 425);
             this.buttonLEFT1.Name = "buttonLEFT1";
             this.buttonLEFT1.Size = new System.Drawing.Size(40, 23);
             this.buttonLEFT1.TabIndex = 4;
@@ -82,7 +90,7 @@ namespace GADE_POE_task_1
             // 
             // buttonDown1
             // 
-            this.buttonDown1.Location = new System.Drawing.Point(675, 408);
+            this.buttonDown1.Location = new System.Drawing.Point(649, 457);
             this.buttonDown1.Name = "buttonDown1";
             this.buttonDown1.Size = new System.Drawing.Size(40, 23);
             this.buttonDown1.TabIndex = 5;
@@ -90,11 +98,70 @@ namespace GADE_POE_task_1
             this.buttonDown1.UseVisualStyleBackColor = true;
             this.buttonDown1.Click += new System.EventHandler(this.buttonDown1_Click);
             // 
+            // groupBoxAttacking
+            // 
+            this.groupBoxAttacking.Controls.Add(this.richTextBox2);
+            this.groupBoxAttacking.Controls.Add(this.richTextBox1);
+            this.groupBoxAttacking.Controls.Add(this.button_Attack);
+            this.groupBoxAttacking.Location = new System.Drawing.Point(552, 108);
+            this.groupBoxAttacking.Name = "groupBoxAttacking";
+            this.groupBoxAttacking.Size = new System.Drawing.Size(216, 270);
+            this.groupBoxAttacking.TabIndex = 6;
+            this.groupBoxAttacking.TabStop = false;
+            this.groupBoxAttacking.Text = "Attacking";
+            this.groupBoxAttacking.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(6, 205);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(204, 59);
+            this.richTextBox2.TabIndex = 2;
+            this.richTextBox2.Text = "";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(6, 22);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(204, 143);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // button_Attack
+            // 
+            this.button_Attack.Location = new System.Drawing.Point(6, 171);
+            this.button_Attack.Name = "button_Attack";
+            this.button_Attack.Size = new System.Drawing.Size(204, 28);
+            this.button_Attack.TabIndex = 0;
+            this.button_Attack.Text = "Attack";
+            this.button_Attack.UseVisualStyleBackColor = true;
+            this.button_Attack.Click += new System.EventHandler(this.button_Attack_Click);
+            // 
+            // groupBox_Player_Stats
+            // 
+            this.groupBox_Player_Stats.Controls.Add(this.richTextBox_Player_Stats);
+            this.groupBox_Player_Stats.Location = new System.Drawing.Point(552, 12);
+            this.groupBox_Player_Stats.Name = "groupBox_Player_Stats";
+            this.groupBox_Player_Stats.Size = new System.Drawing.Size(216, 98);
+            this.groupBox_Player_Stats.TabIndex = 8;
+            this.groupBox_Player_Stats.TabStop = false;
+            this.groupBox_Player_Stats.Text = "Player Stats";
+            // 
+            // richTextBox_Player_Stats
+            // 
+            this.richTextBox_Player_Stats.Location = new System.Drawing.Point(6, 22);
+            this.richTextBox_Player_Stats.Name = "richTextBox_Player_Stats";
+            this.richTextBox_Player_Stats.Size = new System.Drawing.Size(204, 68);
+            this.richTextBox_Player_Stats.TabIndex = 0;
+            this.richTextBox_Player_Stats.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.groupBox_Player_Stats);
+            this.Controls.Add(this.groupBoxAttacking);
             this.Controls.Add(this.buttonDown1);
             this.Controls.Add(this.buttonLEFT1);
             this.Controls.Add(this.buttonRIGHT1);
@@ -103,6 +170,8 @@ namespace GADE_POE_task_1
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBoxAttacking.ResumeLayout(false);
+            this.groupBox_Player_Stats.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +185,12 @@ namespace GADE_POE_task_1
         private System.Windows.Forms.Button buttonRIGHT1;
         private System.Windows.Forms.Button buttonLEFT1;
         private System.Windows.Forms.Button buttonDown1;
+        private System.Windows.Forms.GroupBox groupBoxAttacking;
+        private System.Windows.Forms.Button button_Attack;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.GroupBox groupBox_Player_Stats;
+        private System.Windows.Forms.RichTextBox richTextBox_Player_Stats;
     }
 }
 
