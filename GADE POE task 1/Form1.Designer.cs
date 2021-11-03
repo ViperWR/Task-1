@@ -42,6 +42,7 @@ namespace GADE_POE_task_1
             this.button_Attack = new System.Windows.Forms.Button();
             this.groupBox_Player_Stats = new System.Windows.Forms.GroupBox();
             this.richTextBox_Player_Stats = new System.Windows.Forms.RichTextBox();
+            this.select_enemy = new System.Windows.Forms.ComboBox();
             this.groupBoxAttacking.SuspendLayout();
             this.groupBox_Player_Stats.SuspendLayout();
             this.SuspendLayout();
@@ -155,11 +156,25 @@ namespace GADE_POE_task_1
             this.richTextBox_Player_Stats.TabIndex = 0;
             this.richTextBox_Player_Stats.Text = "";
             // 
+            // select_enemy
+            // 
+            this.select_enemy.FormattingEnabled = true;
+            this.select_enemy.Items.AddRange(new object[] {
+            "Above you",
+            "Under you",
+            "On your Right",
+            "On your Left"});
+            this.select_enemy.Location = new System.Drawing.Point(12, 399);
+            this.select_enemy.Name = "select_enemy";
+            this.select_enemy.Size = new System.Drawing.Size(121, 23);
+            this.select_enemy.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.select_enemy);
             this.Controls.Add(this.groupBox_Player_Stats);
             this.Controls.Add(this.groupBoxAttacking);
             this.Controls.Add(this.buttonDown1);
@@ -191,6 +206,7 @@ namespace GADE_POE_task_1
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox_Player_Stats;
         private System.Windows.Forms.RichTextBox richTextBox_Player_Stats;
+        private System.Windows.Forms.ComboBox select_enemy;
     }
 }
 

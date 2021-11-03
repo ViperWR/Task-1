@@ -13,7 +13,7 @@ namespace GADE_POE_task_1
     public partial class Form1 : Form
     {
         map map11 = new map();
-        GameEngine GEngine = new GameEngine();
+        //GameEngine GEngine = new GameEngine();
         int directions = 0;
         public Form1()
         {
@@ -131,6 +131,44 @@ namespace GADE_POE_task_1
                     return;
             }
         }
+        private void selected_Enemy()
+        {
+            select_enemy.Items.Add("Above you");
+            select_enemy.Items.Add("Under you");
+            select_enemy.Items.Add("On your Right");
+            select_enemy.Items.Add("On your Left");
+        }
+        private void attack_Enemy()
+        {
+            if (select_enemy.SelectedIndex == 0)
+            {
+                if (map11.map_Arr[map11.hero_Coords_X - 1, map11.hero_Coords_Y] == "G")
+                {
+
+                }
+            }
+            if (select_enemy.SelectedIndex == 1)
+            {
+                if (map11.map_Arr[map11.hero_Coords_X + 1, map11.hero_Coords_Y] == "G")
+                {
+
+                }
+            }
+            if (select_enemy.SelectedIndex == 2)
+            {
+                if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y + 1] == "G")
+                {
+
+                }
+            }
+            if (select_enemy.SelectedIndex == 3)
+            {
+                if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] == "G")
+                {
+
+                }
+            }
+        }
         private void MapLabel_Click(object sender, EventArgs e)
         {
 
@@ -171,7 +209,7 @@ namespace GADE_POE_task_1
 
         private void button_Attack_Click(object sender, EventArgs e)
         {
-
+            attack_Enemy();
         }
     }
     //Question 2.1
@@ -451,34 +489,5 @@ namespace GADE_POE_task_1
         {
             
         }
-        public void MovePlayer()
-        {
-            if (goUp == true)
-            {
-                //map11.prev_hero_Coords_X = map11.hero_Coords_X;
-                //map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
-                //map11.hero_Coords_Y -= 1;
-                //map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] = "H";
-                
-            }
-            if (goLeft == true)
-            {
-                map11.prev_hero_Coords_X = map11.hero_Coords_X;
-                map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
-                map11.hero_Coords_X -= 1;
-            }
-            if (goRight == true)
-            {
-                map11.prev_hero_Coords_X = map11.hero_Coords_X;
-                map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
-                map11.hero_Coords_X += 1;
-            }
-            if (goDown == true)
-            {
-                map11.prev_hero_Coords_X = map11.hero_Coords_X;
-                map11.prev_hero_Coords_Y = map11.hero_Coords_Y;
-                map11.hero_Coords_Y += 1;
-            }
-        }     
     }
 }
