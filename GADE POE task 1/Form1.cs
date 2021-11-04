@@ -272,7 +272,7 @@ namespace GADE_POE_task_1
             int Max_HP = 100;
             int Damage = 2;
         }
-        private void goblin_Stats()
+        private void goblin_Stats()         // setting goblin stats
         {
             for (int i = 0; i < map11.map_Width; i++)
             {
@@ -371,7 +371,7 @@ namespace GADE_POE_task_1
     {
 
     }
-    //Question 2.2
+    //Question 2.2 
     abstract class Character : Tile
     {
         
