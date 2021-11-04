@@ -38,7 +38,7 @@ namespace GADE_POE_task_1
             this.buttonDown1 = new System.Windows.Forms.Button();
             this.groupBoxAttacking = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.attack_richTextBox = new System.Windows.Forms.RichTextBox();
             this.button_Attack = new System.Windows.Forms.Button();
             this.groupBox_Player_Stats = new System.Windows.Forms.GroupBox();
             this.richTextBox_Player_Stats = new System.Windows.Forms.RichTextBox();
@@ -102,7 +102,7 @@ namespace GADE_POE_task_1
             // groupBoxAttacking
             // 
             this.groupBoxAttacking.Controls.Add(this.richTextBox2);
-            this.groupBoxAttacking.Controls.Add(this.richTextBox1);
+            this.groupBoxAttacking.Controls.Add(this.attack_richTextBox);
             this.groupBoxAttacking.Controls.Add(this.button_Attack);
             this.groupBoxAttacking.Location = new System.Drawing.Point(552, 108);
             this.groupBoxAttacking.Name = "groupBoxAttacking";
@@ -120,13 +120,13 @@ namespace GADE_POE_task_1
             this.richTextBox2.TabIndex = 2;
             this.richTextBox2.Text = "";
             // 
-            // richTextBox1
+            // attack_richTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 22);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(204, 143);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.attack_richTextBox.Location = new System.Drawing.Point(6, 22);
+            this.attack_richTextBox.Name = "attack_richTextBox";
+            this.attack_richTextBox.Size = new System.Drawing.Size(204, 143);
+            this.attack_richTextBox.TabIndex = 1;
+            this.attack_richTextBox.Text = "";
             // 
             // button_Attack
             // 
@@ -168,6 +168,7 @@ namespace GADE_POE_task_1
             this.select_enemy.Name = "select_enemy";
             this.select_enemy.Size = new System.Drawing.Size(121, 23);
             this.select_enemy.TabIndex = 9;
+            this.select_enemy.SelectedIndexChanged += new System.EventHandler(this.select_enemy_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -203,7 +204,7 @@ namespace GADE_POE_task_1
         private System.Windows.Forms.GroupBox groupBoxAttacking;
         private System.Windows.Forms.Button button_Attack;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox attack_richTextBox;
         private System.Windows.Forms.GroupBox groupBox_Player_Stats;
         private System.Windows.Forms.RichTextBox richTextBox_Player_Stats;
         private System.Windows.Forms.ComboBox select_enemy;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace GADE_POE_task_1
         map map11 = new map();
         //GameEngine GEngine = new GameEngine();
         int directions = 0;
+        int enemy = 0;
+
+        List<String> goblins_List = new List<string>();
+
+        int c = 0;
+
+        int[,] g_Position = new int[12, 12];
+        int[] g_Health = new int[5];
+        int g_Damage = 1;
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +40,10 @@ namespace GADE_POE_task_1
 
             map11.Create_Objects();
 
-            MapLabel.Text = "";
+            hero_Stats();
+            goblin_Stats();
+
+            MapLabel.Text = ""; //Create Map
             for (int i = 0; i < map11.map_Width; i++)
             {
                 for (int n = 0; n < map11.map_Height; n++)
@@ -131,42 +144,150 @@ namespace GADE_POE_task_1
                     return;
             }
         }
+        private void my_List()
+        {
+            for (int i = 0; i < map11.map_Width; i++)
+            {
+                for (int n = 0; n < map11.map_Height; n++)
+                {
+                    if (map11.map_Arr[i, n] == "G")
+                    {
+                        goblins_List.Add(Convert.ToString(i + "," + n));
+                    }
+                }
+            }
+        }
         private void selected_Enemy()
         {
-            select_enemy.Items.Add("Above you");
-            select_enemy.Items.Add("Under you");
-            select_enemy.Items.Add("On your Right");
-            select_enemy.Items.Add("On your Left");
+            my_List();
+            string temp = Convert.ToString(map11.hero_Coords_X + "," + map11.hero_Coords_Y);
+
+            if (goblins_List[0] == temp)
+            {
+                enemy = 1;
+            }
+            if (goblins_List[1] == temp)
+            {
+                enemy = 2;
+            }
+            if (goblins_List[2] == temp)
+            {
+                enemy = 3;
+            }
+            if (goblins_List[3] == temp)
+            {
+                enemy = 4;
+            }
+            if (goblins_List[4] == temp)
+            {
+                enemy = 5;
+            }
         }
         private void attack_Enemy()
-        {
-            if (select_enemy.SelectedIndex == 0)
+        {          
+            if (select_enemy.SelectedIndex == 0)       //up
             {
+                map11.hero_Coords_X -= 1;
+                selected_Enemy();
+                map11.hero_Coords_X += 1;
                 if (map11.map_Arr[map11.hero_Coords_X - 1, map11.hero_Coords_Y] == "G")
-                {
-
+                {                
+                    if (g_Health[enemy - 1] > 0)
+                    {
+                        g_Health[enemy - 1] -= 2;
+                        attack_richTextBox.Text = ("Goblin got Hit for 2 " + '\n' + "Goblin HP: " + g_Health[enemy - 1] + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
+                    if (g_Health[enemy - 1] <= 0)
+                    {
+                        map11.map_Arr[map11.hero_Coords_X - 1, map11.hero_Coords_Y] = " ";
+                        attack_richTextBox.Text = ("Goblin Killed" + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
                 }
             }
-            if (select_enemy.SelectedIndex == 1)
+            if (select_enemy.SelectedIndex == 1)      //down
             {
+                map11.hero_Coords_X += 1;
+                selected_Enemy();
+                map11.hero_Coords_X -= 1;
+                c = g_Position[map11.hero_Coords_X + 1, map11.hero_Coords_Y];
                 if (map11.map_Arr[map11.hero_Coords_X + 1, map11.hero_Coords_Y] == "G")
                 {
-
+                    if (g_Health[enemy - 1] > 0)
+                    {
+                        g_Health[enemy - 1] -= 2;
+                        attack_richTextBox.Text = ("Goblin got Hit for 2 " + '\n' + "Goblin HP: " + g_Health[enemy - 1] + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
+                    if (g_Health[enemy - 1] <= 0)
+                    {
+                        map11.map_Arr[map11.hero_Coords_X + 1, map11.hero_Coords_Y] = " ";
+                        attack_richTextBox.Text = ("Goblin Killed" + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
                 }
             }
-            if (select_enemy.SelectedIndex == 2)
+            if (select_enemy.SelectedIndex == 2)      //right
             {
+                map11.hero_Coords_Y += 1;
+                selected_Enemy();
+                map11.hero_Coords_Y -= 1;
+                c = g_Position[map11.hero_Coords_X, map11.hero_Coords_Y + 1];
                 if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y + 1] == "G")
                 {
-
+                    if (g_Health[enemy - 1] > 0)
+                    {
+                        g_Health[enemy - 1] -= 2;
+                        attack_richTextBox.Text = ("Goblin got Hit for 2 " + '\n' + "Goblin HP: " + g_Health[enemy - 1] + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
+                    if (g_Health[enemy - 1] <= 0)
+                    {
+                        map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y + 1] = " ";
+                        attack_richTextBox.Text = ("Goblin Killed" + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
                 }
             }
-            if (select_enemy.SelectedIndex == 3)
+            if (select_enemy.SelectedIndex == 3)       //left
             {
+                map11.hero_Coords_Y -= 1;
+                selected_Enemy();
+                map11.hero_Coords_Y += 1;
+                c = g_Position[map11.hero_Coords_X, map11.hero_Coords_Y - 1];
                 if (map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] == "G")
                 {
-
+                    if (g_Health[enemy - 1] > 0)
+                    {
+                        g_Health[enemy - 1] -= 2;
+                        attack_richTextBox.Text = ("Goblin got Hit for 2 " + '\n' + "Goblin HP: " + g_Health[enemy - 1] + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
+                    if (g_Health[enemy - 1] <= 0)
+                    {
+                        map11.map_Arr[map11.hero_Coords_X, map11.hero_Coords_Y - 1] = " ";
+                        attack_richTextBox.Text = ("Goblin Killed" + '\n' + "======================" + '\n' + attack_richTextBox.Text);
+                    }
                 }
+            }
+            update_Map();
+        }
+        private void hero_Stats()
+        {
+            int HP = 100;
+            int Max_HP = 100;
+            int Damage = 2;
+        }
+        private void goblin_Stats()
+        {
+            for (int i = 0; i < map11.map_Width; i++)
+            {
+                for (int n = 0; n < map11.map_Height; n++)
+                {
+                    if (map11.map_Arr[i, n] == "G")
+                    {
+                        g_Position[c, 0] = i;
+                        g_Position[c, 1] = n;
+                        g_Health[c] = 10;
+
+                        c += 1;
+                    }
+                }
+                MapLabel.Text = MapLabel.Text + "\n";
             }
         }
         private void MapLabel_Click(object sender, EventArgs e)
@@ -211,6 +332,11 @@ namespace GADE_POE_task_1
         {
             attack_Enemy();
         }
+
+        private void select_enemy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     //Question 2.1
     public abstract class Tile
@@ -248,9 +374,7 @@ namespace GADE_POE_task_1
     //Question 2.2
     abstract class Character : Tile
     {
-        protected int HP = 100;
-        protected int Max_HP = 100;
-        protected int Damage = 2;
+        
         protected int MapBorder;
 
         protected int[] Vision = new int[4];
@@ -314,13 +438,13 @@ namespace GADE_POE_task_1
         }
         public override string ToString()
         {
-            return ("Goblin at " + X + Y + Damage);
+            return ("Goblin at " + X + Y + 10);
         }
         //Question 2.5
         public abstract class Goblin : Enemy
         {
-            protected int goblin_HP;
-            protected int goblin_Damage;
+            protected int goblin_HP = 10;
+            protected int goblin_Damage = 1;
             public Goblin()
             {
 
@@ -338,6 +462,9 @@ namespace GADE_POE_task_1
     }
     abstract class Hero : Character
     {
+        protected int HP = 100;
+        protected int Max_HP = 100;
+        protected int Damage = 2;
         protected int Hero_Damage = 2;
         public Hero()
         {
@@ -378,6 +505,8 @@ namespace GADE_POE_task_1
         public int map_Width;
         public int map_Height;
 
+        ArrayList list = new ArrayList();
+
         //Question 3.2
 
         public map()
@@ -401,7 +530,7 @@ namespace GADE_POE_task_1
 
             Create_Objects();
         }
-        public void Create()
+        public void Create() //Map Border
         {
             for (int i = 0; i < map_Width; i++)
             {
@@ -428,7 +557,6 @@ namespace GADE_POE_task_1
         }
         public void Create_Objects()
         {
-            bool done = false;
             bool done_2 = false;
 
             for (int i = 0; i < enemies_Arr.Length; i++)
@@ -448,8 +576,7 @@ namespace GADE_POE_task_1
                 if (map_Arr[x, y] == " ")
                 {
                     map_Arr[x, y] = "G";
-                    //enemies_Coords_X[i] = x;
-                    //enemies_Coords_Y[i] = y;
+                    list.Add(Convert.ToString(x + "," + y));
                 }
             }
 
